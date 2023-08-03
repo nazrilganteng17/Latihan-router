@@ -1,13 +1,18 @@
 <template>
+    <div v-if="data.length == 0">
+        <h1>Produk Tidak tersedia</h1> </div>
+        <div v-else>
+        
     <div class="flex-container">
         <div v-for="produk in data" :key="produk.id" class="card">
         <img class="img" :src="getImgSrc(produk.img)" alt="category image" />
         <router-link class="container" :to="{ name : 'Detail', params:{id_produk : produk.id}}">
             <h4>{{produk.nama }}</h4>
         </router-link>
+        </div>
+        </div>
     </div>
-    </div>
-  </template>
+    </template>
 <script>
 import { produk } from '../assets/Produk';
 import { kategori } from '@/assets/Kategori';

@@ -8,7 +8,10 @@ import Produk from "@/views/Produk.vue"
 import Detail from "@/views/Detail.vue"
 import Kategori from "@/views/Kategori.vue"
 import DetailKategori from "@/views/DetailKategori.vue"
-import notfound from '@/views/notfound.vue'
+import NotFound from '@/views/NotFound.vue'
+import Login from '@/views/Login.vue'
+
+// import { users } from "../assets/user";
 const routes = [ 
   {
     path: "/", 
@@ -26,17 +29,6 @@ const routes = [
     component: Contact,
   },
   {
-    path: "/produk",
-    name: "Produk",
-    component: Produk,
-  },
-  {
-    path: "/detail/:id_produk",
-    name: "Detail",
-    component: Detail,
-    props: true,
-  },
-  {
     path: "/kategori",
     name: "Kategori",
     component: Kategori,
@@ -44,14 +36,38 @@ const routes = [
   },
   {
     path: "/:patchMatch(.*)*",
-    name: "NotFound",
-    component: notfound,
+    component: NotFound,
     
   },
   {
     path: "/detailkategori/:id_kategori",
     name: "DetailKategori",
     component: DetailKategori,
+    props: true,
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+    props: true,
+  },
+  {
+    path: "/produk",
+    name: "Produk",
+    component: Produk,
+    beforeEnter: (to, from, next) => {
+      const loggedInUser = true;
+      if (loggedInUser) {
+        next(); // Lanjutkan navigasi ke halaman produk jika sudah login
+      } else {
+        next("/login"); // Alihkan ke halaman login jika belum login
+      }
+    },
+  },
+  {
+    path: "/detail/:id_produk",
+    name: "Detail",
+    component: Detail,
     props: true,
   },
 ];

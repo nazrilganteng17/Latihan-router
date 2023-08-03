@@ -51,7 +51,7 @@ export const produk = {
       },
       {
           "id": 7,
-          "id_kategori" : "2",
+          "id_kategori" : "0",
           "nama": "Polo T-shirt",
           "harga" : "Rp 500.000,00",
           'img' : 'polo.jpg',
@@ -104,14 +104,14 @@ export const produk = {
       },
       {
           "id": 14,
-          "id_kategori" : "2",
+          "id_kategori" : "0",
           "nama": "Celana Stone Island",
           "harga" : "Rp 3.250.000,00",
           'img' : 'SI.jpg'
       },
       {
           "id": 15,
-          "id_kategori" : "2",
+          "id_kategori" : "0",
           "nama": "Sepatu Vans Old School",
           "harga" : "Rp 2.500.000,00",
           'img' : 'vans.jpg'
